@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../usuarios.service';
 
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-usuarios',
@@ -11,9 +12,15 @@ export class UsuariosComponent implements OnInit {
 
   usuarios: Array<any> = new Array();
 
-  constructor(private usuariosService:UsuariosService) {
+  closeResult: string;
+  
+
+  constructor(private usuariosService:UsuariosService,private modalService: NgbModal) {
 
    }
+
+
+ 
    //Quando inicializar executa o method Listar();
   ngOnInit(): void {
     this.listarUsers();
@@ -27,5 +34,6 @@ export class UsuariosComponent implements OnInit {
       window.alert('Erro ao listar Alunos'); 
     })
   }
+  
 
 }
